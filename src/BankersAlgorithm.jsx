@@ -18,7 +18,7 @@ export default function BankersAlgorithm() {
   const [showSequence, setShowSequence] = useState(false);
   const [inputMode, setInputMode] = useState(true);
   const [operations, setOperations] = useState([]);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   // Graph states
   const [showGraphs, setShowGraphs] = useState(false);
   const [resourceAllocationGraph, setResourceAllocationGraph] = useState(null);
@@ -930,7 +930,8 @@ export default function BankersAlgorithm() {
           {/* Theme Toggle Button */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className={`absolute top-4 right-4 p-2 sm:p-3 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-110 ${darkMode ? 'bg-yellow-500 hover:bg-yellow-600 text-gray-900' : 'bg-gray-800 hover:bg-gray-900 text-yellow-400'}`}
+            onTouchStart={() => setDarkMode(!darkMode)}
+            className={`absolute top-4 right-4 p-2 sm:p-3 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-110 active:scale-95 ${darkMode ? 'bg-yellow-500 hover:bg-yellow-600 text-gray-900' : 'bg-gray-800 hover:bg-gray-900 text-yellow-400'}`}
             aria-label="Toggle theme"
           >
             {darkMode ? <Sun className="w-5 h-5 sm:w-6 sm:h-6" /> : <Moon className="w-5 h-5 sm:w-6 sm:h-6" />}
